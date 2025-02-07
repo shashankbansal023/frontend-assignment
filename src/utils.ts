@@ -9,8 +9,10 @@ export const getDaysInMonth = (date: Date) => {
 
 export const generateCalendar = (date: Date) => {
     const daysInMonth = getDaysInMonth(date);
-    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+    let firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
     const calendar = [];
+
+    firstDay = firstDay == 0 ? 7 : firstDay;
     
     // Add empty days for previous month
     for (let i = 1; i < firstDay; i++) {
